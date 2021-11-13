@@ -27,10 +27,8 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<Player>(out Player player))
         {
-            if(player.transform.position.x>transform.position.x)
-                player.GetRigidBody.AddForce(Vector2.right * _impulse);
-            else
-                player.GetRigidBody.AddForce(Vector2.left * _impulse);
+            int direction = player.transform.position.x > transform.position.x ? 1 : -1;
+            player.GetRigidBody.AddForce(Vector2.right * direction * _impulse);
         }
     }
 }

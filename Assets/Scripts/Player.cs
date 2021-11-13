@@ -34,16 +34,15 @@ public class Player : MonoBehaviour
         Camera.main.transform.position = Vector3.Lerp(Camera.main.transform.position, cameraPosition, _cameraLerp*Time.deltaTime);
 
         Move();
-        Jump();
+
+        if (_isGrounded && Input.GetKey(KeyCode.Space))
+            Jump();
     }
 
     private void Jump()
     {
-        if (_isGrounded && Input.GetKey(KeyCode.Space))
-        {
             _rigidBody.AddForce(Vector2.up * _jumpForce);
             _isGrounded = false;
-        }
     }
 
     private void Move()

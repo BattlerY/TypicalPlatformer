@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class CoinSpawner : MonoBehaviour
 {
-    private List<Transform> spawnPlaces;
+    private Transform[] spawnPlaces;
 
     private void Awake()
     {
-        spawnPlaces = new List<Transform>();
-        foreach (Transform item in transform)
-            spawnPlaces.Add(item);
+        spawnPlaces = new Transform[transform.childCount];
+
+        for (int i = 0; i < spawnPlaces.Length; i++)
+            spawnPlaces[i] = transform.GetChild(i);
 
         StartCoroutine(SpawnEnemy());
     }
@@ -21,7 +22,7 @@ public class CoinSpawner : MonoBehaviour
 
         while (true)
         {
-            int random = Random.Range(0, spawnPlaces.Count);
+            int random = Random.Range(0, spawnPlaces.Length);
 
             if (spawnPlaces[random].gameObject.activeSelf == false)
                 spawnPlaces[random].gameObject.SetActive(true);
