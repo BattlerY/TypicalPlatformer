@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _impulse;
 
-    void Update()
+    private void Update()
     {
         Debug.DrawRay(_checkingPoint.position, Vector3.down, Color.yellow);
 
@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.TryGetComponent<Player>(out Player player))
         {
             int direction = player.transform.position.x > transform.position.x ? 1 : -1;
-            player.GetRigidBody.AddForce(Vector2.right * direction * _impulse);
+            player.RigidBody.AddForce(Vector2.right * direction * _impulse);
         }
     }
 }

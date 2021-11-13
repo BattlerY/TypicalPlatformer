@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rigidBody;
     private bool _isGrounded;
 
-    public Rigidbody2D GetRigidBody => _rigidBody;
+    public Rigidbody2D RigidBody => _rigidBody;
 
     private void Awake()
     {
@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
     {
         float direction = Input.GetAxis("Horizontal");
         float absoluteDirection = Mathf.Abs(direction);
-        _animator.SetFloat("Speed", absoluteDirection);
+        _animator.SetFloat(AnimatorPlayerController.Params.Speed, absoluteDirection);
         if (absoluteDirection >= _startMoveModificator)
         {
             transform.Translate(Vector3.right * _speed * Time.deltaTime * direction);
@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Coin"))
+        if (collision.TryGetComponent<Coin>(out Coin coin))
             collision.gameObject.SetActive(false);
     }
 }
