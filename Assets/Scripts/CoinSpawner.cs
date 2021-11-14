@@ -13,10 +13,10 @@ public class CoinSpawner : MonoBehaviour
         for (int i = 0; i < spawnPlaces.Length; i++)
             spawnPlaces[i] = transform.GetChild(i);
 
-        StartCoroutine(SpawnEnemy());
+        StartCoroutine(Spawn());
     }
 
-    private IEnumerator SpawnEnemy()
+    private IEnumerator Spawn()
     {
         var waitTime = new WaitForSeconds(0.5f);
 

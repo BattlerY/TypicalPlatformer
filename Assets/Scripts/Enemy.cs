@@ -26,9 +26,6 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent<Player>(out Player player))
-        {
-            int direction = player.transform.position.x > transform.position.x ? 1 : -1;
-            player.RigidBody.AddForce(Vector2.right * direction * _impulse);
-        }
+            player.Mover.TakeImpulse(transform.position.x, _impulse); 
     }
 }

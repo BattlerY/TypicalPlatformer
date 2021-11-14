@@ -2416,10 +2416,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1683881536}
   - component: {fileID: 1683881539}
-  - component: {fileID: 1683881538}
   - component: {fileID: 1683881537}
   - component: {fileID: 1683881540}
   - component: {fileID: 1683881541}
+  - component: {fileID: 1683881542}
+  - component: {fileID: 1683881538}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2504,9 +2505,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cc67b2561b667342b83f17ae0180f42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
-  _startMoveModificator: 0.3
-  _jumpForce: 400
   _cameraLerp: 1
 --- !u!95 &1683881539
 Animator:
@@ -2574,6 +2572,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.68, y: 1.05}
   m_EdgeRadius: 0
+--- !u!114 &1683881542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1683881535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c991a7961316a8b4494388823a4b4bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 5
+  _startMoveModificator: 0.3
+  _jumpForce: 400
 --- !u!1001 &1694876959
 PrefabInstance:
   m_ObjectHideFlags: 0
